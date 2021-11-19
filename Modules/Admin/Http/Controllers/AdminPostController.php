@@ -4,6 +4,7 @@ namespace Modules\Admin\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Http\Requests\StorePostRequest;
 
 class AdminPostController extends Controller
 {
@@ -17,7 +18,7 @@ class AdminPostController extends Controller
         //
     }
 
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
         //
     }
