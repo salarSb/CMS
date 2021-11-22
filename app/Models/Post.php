@@ -25,6 +25,11 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function categories()
+    {
+        return $this->morphToMany(Category::class, 'catable');
+    }
+
     public function path()
     {
         return '/posts/' . $this->slug;

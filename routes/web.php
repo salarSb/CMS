@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $post = \App\Models\Post::find(1);
+    dd($post->categories);
+//    $category = \App\Models\Category::find(1);
+//    dd($category->posts);
 });
