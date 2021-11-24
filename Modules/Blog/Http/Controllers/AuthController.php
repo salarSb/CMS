@@ -18,6 +18,9 @@ class AuthController extends Controller
             'mobile' => $inputs['mobile'],
             'password' => Hash::make($inputs['password'])
         ]);
+        return response()->json([
+            'message' => 'ثبت نام با موفقیت انجام شد'
+        ], 200);
     }
 
     public function login(Request $request)

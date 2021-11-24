@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +13,13 @@
 |
 */
 
-Route::prefix('admin')->middleware(['checkAdmin', 'auth:sanctum', 'verified'])->name('admin.')->group(function () {
-    Route::get('/panel', 'AdminController@index')->name('panel');
+Route::prefix('admin')->middleware(['checkAdmin', 'auth:sanctum', 'verified'])->group(function () {
+    Route::get('/panel', 'AdminController@index')->name('admin.panel');
     Route::resource('/users', 'AdminUserController');
+    Route::get('/users-data', 'AdminUserController@data')->name('users.data');
     Route::resource('/posts', 'AdminPostController');
+    Route::resource('/categories', 'CategoryController');
+    Route::resource('/comments', 'CommentController');
+    Route::resource('/tags', 'TagController');
+    Route::resource('/themes', 'ThemeController');
 });

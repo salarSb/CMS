@@ -4,7 +4,7 @@ namespace Modules\Admin\Traits;
 
 use Carbon\Carbon;
 
-Trait AdminUtil
+trait AdminUtil
 {
     function uploadImages($file, $path)
     {
@@ -24,10 +24,11 @@ Trait AdminUtil
         return $str;
     }
 
-    function formatBytes($bytes, $precision = 2) {
+    function formatBytes($bytes, $precision = 2)
+    {
         $units = array('B', 'KB', 'MB', 'GB', 'TB');
         $i = 0;
-        while($bytes >= 1024) {
+        while ($bytes >= 1024) {
             $bytes /= 1024;
             $i++;
         }
