@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="sheets">
-        <link rel="stylesheet" href="/plugins/datatables/dataTables.bootstrap5.min.css">
+        <link rel="stylesheet" href="{{ asset('plugins/datatables/dataTables.bootstrap5.min.css') }}">
     </x-slot>
     <div class="container py-6">
         <div class="row justify-content-center">
@@ -36,7 +36,7 @@
         </div>
     </div>
     <x-slot name="scripts">
-        <script src="/plugins/datatables/datatables.min.js"></script>
+        <script src="{{ asset('plugins/datatables/datatables.min.js') }}"></script>
 
         <script>
             $(function () {
