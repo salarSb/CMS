@@ -11,7 +11,7 @@
 |
 */
 
-Route::prefix('admin')->middleware('checkAdmin')->name('admin.')->group(function () {
+Route::prefix('admin')->middleware(['checkAdmin', 'auth:sanctum', 'verified'])->name('admin.')->group(function () {
     Route::get('/panel', 'AdminController@index')->name('panel');
     Route::resource('/users', 'AdminUserController');
     Route::resource('/posts', 'AdminPostController');
