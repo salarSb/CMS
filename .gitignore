@@ -16,3 +16,6 @@ yarn-error.log
 /storage/logs/
 /resources/assets/plugins/
 /public/plugins/
+/storage/app/public/images/
+/storage/app/themes/
+/storage/app/public/

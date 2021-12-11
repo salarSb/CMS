@@ -9,6 +9,16 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'user_id',
+        'parent_id',
+        'text',
+        'approved',
+        'commentable_id',
+        'commentable_type'
+
+    ];
+
     public function commentable()
     {
         return $this->morphTo();

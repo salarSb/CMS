@@ -15,11 +15,23 @@ use Illuminate\Support\Facades\Route;
 
 Route::prefix('admin')->middleware(['checkAdmin', 'auth:sanctum', 'verified'])->group(function () {
     Route::get('/panel', 'AdminController@index')->name('admin.panel');
+
     Route::resource('/users', 'AdminUserController');
     Route::get('/users-data', 'AdminUserController@data')->name('users.data');
+
     Route::resource('/posts', 'AdminPostController');
-    Route::resource('/categories', 'CategoryController');
+    Route::get('/posts-data', 'AdminPostController@data')->name('posts.data');
+    Route::post('/activate/posts/{post}', 'AdminPostController@activate')->name('posts.activate');
+
+    Route::resource('/categories', 'AdminCategoryController');
+    Route::get('/categories-data', 'AdminCategoryController@data')->name('categories.data');
+
     Route::resource('/comments', 'CommentController');
-    Route::resource('/tags', 'TagController');
-    Route::resource('/themes', 'ThemeController');
+
+    Route::resource('/tags', 'AdminTagController');
+    Route::get('/tags-data', 'AdminTagController@data')->name('tags.data');
+
+    Route::resource('/themes', 'AdminThemeController');
+    Route::get('/themes-data', 'AdminThemeController@data')->name('themes.data');
+    Route::post('/activate/themes/{theme}', 'AdminThemeController@activate')->name('themes.activate');
 });

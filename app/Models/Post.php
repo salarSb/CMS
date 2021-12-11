@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Admin\Traits\DataTable;
 
 class Post extends Model
 {
-    use HasFactory;
+    use HasFactory, DataTable;
 
     protected $fillable = [
         'user_id',
@@ -15,7 +16,7 @@ class Post extends Model
         'slug',
         'description',
         'body',
-        'images',
+        'image',
         'view',
         'approved',
     ];
@@ -48,5 +49,19 @@ class Post extends Model
     public function isApproved()
     {
         return $this->approved;
+    }
+
+    public function scopeSearch($query, $keywords)
+    {
+        $keywords = explode(' ', $keywords);
+        foreach ($keywords as $keyword) {
+            $query->where('title', 'LIKE', '%' . $keyword . '%')
+                ->orWhereHas('categories', function ($query) use ($keyword) {
+                    $query->where('name', 'LIKE', '%' . $keyword . '%');
+                })->orWhereHas('tags', function ($query) use ($keyword) {
+                    $query->where('name', 'LIKE', '%' . $keyword . '%');
+                });
+        }
+        return $query;
     }
 }
