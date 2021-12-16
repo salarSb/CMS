@@ -46,7 +46,7 @@ class AdminPostController extends Controller
             $inputs['slug'] = $this->createSlug($request->title, '-');
         }
         $post = auth()->user()->posts()->create(
-            array_merge($inputs, ['images' => $imagesUrl])
+            array_merge($inputs, ['image' => $imagesUrl])
         );
         $post->categories()->sync($request->input('categories'));
         $post->tags()->sync($request->input('tags'));

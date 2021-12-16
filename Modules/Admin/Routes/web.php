@@ -26,7 +26,9 @@ Route::prefix('admin')->middleware(['checkAdmin', 'auth:sanctum', 'verified'])->
     Route::resource('/categories', 'AdminCategoryController');
     Route::get('/categories-data', 'AdminCategoryController@data')->name('categories.data');
 
-    Route::resource('/comments', 'CommentController');
+    Route::resource('/comments', 'AdminCommentController');
+    Route::get('/comments-data', 'AdminCommentController@data')->name('comments.data');
+    Route::post('/activate/comments/{comment}', 'AdminCommentController@activate')->name('comments.activate');
 
     Route::resource('/tags', 'AdminTagController');
     Route::get('/tags-data', 'AdminTagController@data')->name('tags.data');

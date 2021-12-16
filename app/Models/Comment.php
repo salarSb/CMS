@@ -4,10 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Admin\Traits\DataTable;
 
 class Comment extends Model
 {
-    use HasFactory;
+    use HasFactory, DataTable;
 
     protected $fillable = [
         'user_id',

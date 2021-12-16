@@ -57,7 +57,7 @@
                                 let data = response.data;
 
                                 let row = {
-                                    image: '<img src="{{ asset("/") }}storage/' + data[i].images + '" class="img-fluid img-thumbnail">',
+                                    image: '<img src="{{ asset("/") }}storage/' + data[i].image + '" class="img-fluid img-thumbnail">',
                                     title: '<div class="mt-1">' + data[i].title + '</div>',
                                     description: '<div class="ltr mt-1">' + data[i].description + '</div>',
                                     created_at: '<div class="ltr mt-1">' + new persianDate(new Date(data[i].created_at)).format('YYYY-MM-DD HH:mm') + '</div>',

@@ -31,7 +31,7 @@ Route::apiResource('categories', 'CategoryController', [
     'as' => 'api'
 ]);
 
-Route::apiResource('comments', 'CommentController', [
+Route::apiResource('comments', 'AdminCommentController', [
     'as' => 'api'
 ]);
-Route::get('/post/comments/{post}', 'CommentController@index');
+Route::get('/post/comments/{post}', 'AdminCommentController@index');
