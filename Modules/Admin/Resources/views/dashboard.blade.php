@@ -15,7 +15,8 @@
                         <div class="card-body text-center">
                             <div class="card-title h2 py-2"> {{ $countUsers }} </div>
                             <div class="text-right">
-                                <a href="{{ url('/') }}/admin/users" class="card-link"> {{ __("admin::admin.list", ["value" => trans_choice('admin::admin.user', 2)]) }} </a>
+                                <a href="{{ url('/') }}/admin/users"
+                                   class="card-link"> {{ __("admin::admin.list", ["value" => trans_choice('admin::admin.user', 2)]) }} </a>
                             </div>
                         </div>
                     </div>
@@ -36,7 +37,8 @@
                         <div class="card-body text-center">
                             <div class="card-title h2 py-2"> {{ $countPosts }} </div>
                             <div class="text-right">
-                                <a href="{{ url('/') }}/admin/posts" class="card-link"> {{ __('admin::admin.list', ["value" => trans_choice('admin::admin.post', 2)]) }} </a>
+                                <a href="{{ url('/') }}/admin/posts"
+                                   class="card-link"> {{ __('admin::admin.list', ["value" => trans_choice('admin::admin.post', 2)]) }} </a>
                             </div>
                         </div>
                     </div>
@@ -57,21 +59,25 @@
                                 <a href="{{ route('themes.create') }}"> {{ __('admin::admin.create', ['value' => '']) }} </a>
                             </div>
                         </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-4">
-                                    <img src="{{ asset("/storage/$theme->images") }}" class="img-fluid rounded" alt="starter-theme">
-                                </div>
-                                <div class="col-8">
-                                    <p>
-                                        {{ $theme->name }}
-                                    </p>
-                                    <p class="d-inline-block">
-                                        {{  __('validation.attributes.size') }}: &nbsp; <div class="d-inline-block ltr"> {{ $theme->size }} </div>
-                                    </p>
+                        @if($theme)
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <img src="{{ asset("/storage/$theme->images") }}" class="img-fluid rounded"
+                                             alt="starter-theme">
+                                    </div>
+                                    <div class="col-8">
+                                        <p>
+                                            {{ $theme->name }}
+                                        </p>
+                                        <p class="d-inline-block">
+                                            {{  __('validation.attributes.size') }}: &nbsp;
+                                        <div class="d-inline-block ltr"> {{ $theme->size }} </div>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                 </div>
             </div>
